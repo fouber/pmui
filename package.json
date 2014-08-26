@@ -1,0 +1,32 @@
+{
+    "name": "page-monitor-server",
+    "version": "0.0.1",
+    "description": "a express server wrapper of page-monitor",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fouber/page-monitor-server.git"
+    },
+    "keywords": [
+        "page-monitor",
+        "server",
+        "monitor",
+        "diff",
+        "express",
+        "phantomjs",
+        "phantom"
+    ],
+    "author": "fouber <fouber.NET@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fouber/page-monitor-server/issues"
+    },
+    "homepage": "https://github.com/fouber/page-monitor-server",
+    "dependencies": {
+        "page-monitor": "*",
+        "express": "4.x"
+    }
+}
