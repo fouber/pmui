@@ -5,7 +5,7 @@ var router = express.Router();
 function list(root){
     var urls = [];
     _.find(root, function(path, full){
-        var host = 'http://' + path.replace(/-/g, ':');
+        var host = 'http://' + path.replace(/-(?=\d+$)/g, ':');
         _.find(full, function(p, full){
             var pathname = new Buffer(p, 'base64');
             urls.push({
@@ -21,7 +21,7 @@ function list(root){
 /* GET home page. */
 router.get('/', function (req, res) {
     var root = req.app.get('page monitor root');
-    res.render('index', { title: 'Express', list: list(root) });
+    res.render('index', { title: '竞品监控平台', list: list(root) });
 });
 
 module.exports = router;

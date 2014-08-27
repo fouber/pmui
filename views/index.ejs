@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>已监控页面</p>
     <ul>
         <% list.forEach(function(item){ %>
-        <li><a href="/#!/show/<%= item.path %>"><%= item.url %></a></li>
+        <li><a href="/#!/show/<%= item.path %>" title="点击查看详情"><%= item.url %></a></li>
         <% }); %>
     </ul>
     <div id="list"></div>
