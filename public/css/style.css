@@ -1,0 +1,33 @@
+a {
+  color: #00B7FF;
+}
+
+#list {
+    width: 100%;
+    overflow: auto;
+}
+
+#list td {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#list img {
+    width: 100%;
+    cursor: pointer;
+}
+
+#list .screenshot {
+    width: 150px;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+#list .title {
+    font-size: 12px;
+    text-align: center;
+    background: #333;
+    color: #ffffff;
+    line-height: 30px;
+    height: 30px;
+}

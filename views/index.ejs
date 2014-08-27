@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel='stylesheet' href='/css/reset.css'/>
+    <link rel='stylesheet' href='/css/style.css'/>
+</head>
+<body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <ul>
         <% list.forEach(function(item){ %>
-            <li><a href="#"><%= item %></a></li>
+        <li><a href="/#!/show/<%= item.path %>"><%= item.url %></a></li>
         <% }); %>
     </ul>
-  </body>
+    <div id="list"></div>
+    <div id="diff"></div>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
 </html>

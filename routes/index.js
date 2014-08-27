@@ -1,26 +1,18 @@
-var fs = require('fs');
 var express = require('express');
+var _ = require('./util.js');
 var router = express.Router();
-
-
-function find(path, callback){
-    if(fs.statSync(path).isDirectory()){
-        fs.readdirSync(path).forEach(function(p){
-            if(p[0] !== '.' && fs.statSync(path + '/' + p).isDirectory()){
-                callback(p, path + '/' + p);
-            }
-        });
-    }
-}
 
 function list(root){
     var urls = [];
-    find(root, function(path, full){
+    _.find(root, function(path, full){
         var host = 'http://' + path.replace(/-/g, ':');
-        find(full, function(path){
-            var pathname = new Buffer(path, 'base64');
-            var url = host + pathname.toString();
-            urls.push(url);
+        _.find(full, function(p, full){
+            var pathname = new Buffer(p, 'base64');
+            urls.push({
+                url: host + pathname.toString(),
+                path: path + '/' + p,
+                full: full
+            });
         });
     });
     return urls;
