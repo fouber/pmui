@@ -1,33 +1,182 @@
 a {
-  color: #00B7FF;
+  color: #3498db;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    background: #fff;
+    font-size: 14px;
+    font-family:
+        'helvetica neue', tahoma,
+        'hiragino sans gb',stheiti,
+        'wenquanyi micro hei',
+        \5FAE\8F6F\96C5\9ED1,\5B8B\4F53,
+        sans-serif;
+    line-height: 14px;
+    color: #34495e;
+}
+
+.header {
+    background: #2c3e50;
+    color: #ecf0f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #fff;
+    position: relative;
+    z-index: 10000;
+}
+
+.header h1 {
+    font-size: 15px;
+    line-height: 40px;
+    height: 40px;
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+.info {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    height: 100%;
+    width: 199px;
+    background: #ecf0f1;
+    border-right: 1px solid #ccc;
+}
+
+.info-inner {
+
+}
+
+.info h2 {
+    font-weight: normal;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.info ul {
+    word-break: break-all;
+}
+
+.info ul li {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.info ul a {
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.info ul a:hover {
+    background: #3498db;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.main {
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    right: 0;
+    bottom: 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2980b9;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #fff;
+}
+
+.footer a {
+    line-height: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.list {
+    width: 100%;
+    overflow: auto;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
 }
 
 #list {
-    width: 100%;
-    overflow: auto;
+    margin: 5px 7px;
 }
 
 #list td {
     background: #fff;
     border: 1px solid #ccc;
+    padding: 2px;
 }
 
-#list img {
+.screenshot img {
     width: 100%;
     cursor: pointer;
 }
 
-#list .screenshot {
-    width: 150px;
-    max-height: 300px;
+.screenshot {
+    max-width: 200px;
+    min-width: 110px;
+    height: 160px;
     overflow: hidden;
 }
 
-#list .title {
+.screenshot .title {
     font-size: 12px;
     text-align: center;
     background: #333;
     color: #ffffff;
-    line-height: 30px;
-    height: 30px;
+    line-height: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 10000;
+}
+
+#diff {
+    background: #fff;
+    text-align: center;
+    overflow: auto;
+    position: absolute;
+    top: 191px;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+}
+
+#diff img {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}
+
+@media (max-height: 600px) {
+    .screenshot {
+        height: 80px;
+        overflow: hidden;
+    }
+
+    #diff {
+        top: 111px;
+    }
+
 }

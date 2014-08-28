@@ -4,10 +4,10 @@
         var d = new Date();
         d.setTime(num);
         var day = [
-            d.getFullYear(),
+            String(d.getFullYear()).substring(2),
             pad(d.getMonth() + 1),
             pad(d.getDate())
-        ].join('-');
+        ].join('/');
         var time = [
             pad(d.getHours()),
             pad(d.getMinutes()),
@@ -31,19 +31,20 @@
         show: function(path){
             $.get('/info', {path: path}, function(data){
                 if(data.status === 0){
-                    var html = '<table><tr>';
+                    var html = '';
                     var last;
                     data.object.list.forEach(function(item){
-                        var attr = last ? ' data-diff="' + getDiff(item, last) + '"' : '';
-                        html += '<td>';
-                        html += '<div class="screenshot">';
-                        html += '<div class="title">' + getTimeString(item.time) + '</div>';
-                        html += '<img src="/' + item.screenshot + '"' + attr + '>';
-                        html += '</div>';
-                        html += '</td>';
+                        var attr = ' data-diff="' + (last ? getDiff(item, last) : item.screenshot) + '"';
+                        var h = '<td>';
+                        h += '<div class="screenshot">';
+                        h += '<div class="title">' + getTimeString(item.time) + '</div>';
+                        h += '<img src="/' + item.screenshot + '"' + attr + '>';
+                        h += '</div>';
+                        h += '</td>';
                         last = item.time;
+                        html = h + html;
                     });
-                    html += '</tr></table>';
+                    html = '<table><tr>' + html + '</tr></table>';
                     $('#list').html(html);
                     $('#diff').html('');
                 } else {
@@ -77,11 +78,13 @@
     onhashchange();
 
     $('#list').click('img[data-diff]', function(e){
-        var diff = $(e.target).attr('data-diff');
-        if(diff){
-            $('#diff').html('<img src="/' + diff + '">');
-        } else {
-            $('#diff').html('<span>没有对比数据</span>');
+        if(e.target.tagName.toLowerCase() === 'img'){
+            var diff = $(e.target).attr('data-diff');
+            if(diff){
+                $('#diff').html('<img src="/' + diff + '">');
+            } else {
+                $('#diff').html('<span>没有对比数据</span>');
+            }
         }
     });
 })();

@@ -6,15 +6,28 @@
     <link rel='stylesheet' href='/css/style.css'/>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <p>已监控页面</p>
-    <ul>
-        <% list.forEach(function(item){ %>
-        <li><a href="/#!/show/<%= item.path %>" title="点击查看详情"><%= item.url %></a></li>
-        <% }); %>
-    </ul>
-    <div id="list"></div>
-    <div id="diff"></div>
+    <header class="header">
+        <h1><%= title %></h1>
+    </header>
+    <div class="info">
+        <div class="info-inner">
+            <h2>监控页面</h2>
+            <ul>
+                <% list.forEach(function(item){ %>
+                <li><a href="/#!/show/<%= item.path %>" title="点击查看详情"><%= item.url %></a></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="list">
+            <div id="list"></div>
+        </div>
+        <div id="diff"></div>
+    </div>
+    <footer class="footer">
+        <a href="mailto:zhangyl5@ucweb.com">联系我们</a>
+    </footer>
     <script src="/js/jquery-2.1.1.min.js"></script>
     <script src="/js/main.js"></script>
 </body>

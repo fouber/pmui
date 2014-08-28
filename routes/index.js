@@ -21,7 +21,7 @@ function list(root){
 /* GET home page. */
 router.get('/', function (req, res) {
     var root = req.app.get('page monitor root');
-    res.render('index', { title: '竞品监控平台', list: list(root) });
+    res.render('index', { title: '竞品监控微平台', list: list(root) });
 });
 
 module.exports = router;
