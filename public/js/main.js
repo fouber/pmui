@@ -42,10 +42,12 @@
                         h += '</div>';
                         h += '</td>';
                         last = item.time;
-                        html = h + html;
+                        html += h;
                     });
                     html = '<table><tr>' + html + '</tr></table>';
-                    $('#list').html(html);
+                    var list = $('#list');
+                    list.html(html);
+                    list.parent().scrollLeft(list.get(0).scrollWidth);
                     $('#diff').html('');
                 } else {
                     console.error(data.message);
