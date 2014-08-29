@@ -147,6 +147,10 @@ body {
     height: 20px;
 }
 
+.screenshot.actived .title {
+    background: #e67e22;
+}
+
 .screenshot .pic {
     overflow: hidden;
     position: relative;

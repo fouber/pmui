@@ -82,16 +82,6 @@
     onhashchange();
 
     var list = $('#list');
-    list.click('[data-diff]', function(e){
-        if(e.target.className === 'pic'){
-            var diff = $(e.target).attr('data-diff');
-            if(diff){
-                $('#diff').html('<img src="/' + diff + '">');
-            } else {
-                $('#diff').html('<span>没有对比数据</span>');
-            }
-        }
-    });
     list.mousemove('.pic', function(e){
         if(e.target.className === 'pic'){
             var $this = $(e.target);
@@ -116,7 +106,9 @@
     });
     list.mousedown('.pic', function(e){
         if(e.target.className === 'pic'){
+            list.find('.screenshot').removeClass('actived');
             var $this = $(e.target);
+            $this.parent().addClass('actived');
             var pic = $this.attr('data-pic');
             if(e.button == '2'){
                 $('#diff').html('<img src="/' + pic + '">');
