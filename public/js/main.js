@@ -38,7 +38,9 @@
                         var h = '<td>';
                         h += '<div class="screenshot">';
                         h += '<div class="title">' + getTimeString(item.time) + '</div>';
-                        h += '<img src="/' + item.screenshot + '"' + attr + '>';
+                        h += '<div class="pic"' + attr + ' data-pic="' + item.screenshot + '">';
+                        h += '<img src="/' + item.screenshot + '">';
+                        h += '</div>';
                         h += '</div>';
                         h += '</td>';
                         last = item.time;
@@ -79,14 +81,59 @@
     }
     onhashchange();
 
-    $('#list').click('img[data-diff]', function(e){
-        if(e.target.tagName.toLowerCase() === 'img'){
+    var list = $('#list');
+    list.click('[data-diff]', function(e){
+        if(e.target.className === 'pic'){
             var diff = $(e.target).attr('data-diff');
             if(diff){
                 $('#diff').html('<img src="/' + diff + '">');
             } else {
                 $('#diff').html('<span>没有对比数据</span>');
             }
+        }
+    });
+    list.mousemove('.pic', function(e){
+        if(e.target.className === 'pic'){
+            var $this = $(e.target);
+            var w = $this.width();
+            var h = $this.height();
+            var rX = e.offsetX / w;
+            var rY = e.offsetY / h;
+            var img = $this.find('img');
+            var W = img.width() - w;
+            var H = img.height() - h;
+            var x = -rX * W;
+            var y = -rY * H;
+            img.css('transform', 'translate3d(' + x + 'px, ' + y + 'px, 0)');
+        }
+    });
+    list.mouseout('.pic', function(e){
+        if(e.target.className === 'pic'){
+            var $this = $(e.target);
+            var img = $this.find('img');
+            img.css('transform', 'translate3d(0, 0, 0)');
+        }
+    });
+    list.contextmenu(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    list.mousedown('.pic', function(e){
+        if(e.target.className === 'pic'){
+            var $this = $(e.target);
+            var pic = $this.attr('data-pic');
+            if(e.button == '2'){
+                $('#diff').html('<img src="/' + pic + '">');
+            } else {
+                var diff = $this.attr('data-diff');
+                if(diff){
+                    $('#diff').html('<img src="/' + diff + '">');
+                } else {
+                    $('#diff').html('<span>没有对比数据</span>');
+                }
+            }
+            e.preventDefault();
+            e.stopPropagation();
         }
     });
 })();

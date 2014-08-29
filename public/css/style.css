@@ -130,16 +130,12 @@ body {
     padding: 2px;
 }
 
-.screenshot img {
-    width: 100%;
-    cursor: pointer;
-}
-
 .screenshot {
     max-width: 200px;
     min-width: 110px;
     height: 160px;
     overflow: hidden;
+    position: relative;
 }
 
 .screenshot .title {
@@ -149,8 +145,30 @@ body {
     color: #ffffff;
     line-height: 20px;
     height: 20px;
+}
+
+.screenshot .pic {
+    overflow: hidden;
     position: relative;
-    z-index: 10000;
+    height: calc(100% - 20px);
+}
+
+.screenshot .pic:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    background: rgba(0,0,0,0);
+}
+
+.screenshot img {
+    width: 100%;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 #diff {
