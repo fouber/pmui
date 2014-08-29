@@ -95,16 +95,12 @@
     list.mousemove('.pic', function(e){
         if(e.target.className === 'pic'){
             var $this = $(e.target);
-            var w = $this.width();
             var h = $this.height();
-            var rX = e.offsetX / w;
             var rY = e.offsetY / h;
             var img = $this.find('img');
-            var W = img.width() - w;
             var H = img.height() - h;
-            var x = -rX * W;
             var y = -rY * H;
-            img.css('transform', 'translate3d(' + x + 'px, ' + y + 'px, 0)');
+            img.css('transform', 'translate3d(0, ' + y + 'px, 0)');
         }
     });
     list.mouseout('.pic', function(e){
