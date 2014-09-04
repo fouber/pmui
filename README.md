@@ -62,7 +62,7 @@ pmui run www.google.com
 ```
 
 
-## Learn more
+## Learn More
 
 ### pmui
 
