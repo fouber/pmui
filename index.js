@@ -66,19 +66,19 @@ function help(){
 
 function serverHelp(){
     var msg = [
-        '',
-        'Usage: server <command> [options]',
-        '',
-        'Commands:',
-        '',
-        '  start            start ui server',
-        '  stop             shutdown server',
-        '',
-        'Options:',
-        '',
-        '  -p, --port <int>      server listen port',
-        '  -r, --root <path>     monitor history root',
-        '  -h, --help            output usage information',
+        '  ',
+        '  Usage: server <command> [options]',
+        '  ',
+        '  Commands:',
+        '  ',
+        '    start            start ui server',
+        '    stop             shutdown server',
+        '  ',
+        '  Options:',
+        '  ',
+        '    -p, --port <int>      server listen port',
+        '    -r, --root <path>     monitor history root',
+        '    -h, --help            output usage information',
         ''
     ];
     console.log(msg.join('\n'));
@@ -86,27 +86,27 @@ function serverHelp(){
 
 function runHelp(){
     var msg = [
-        '',
-        'Usage: run <file>',
-        '',
-        'Options:',
-        '',
-        '  -o, --out <file>      log output file',
-        '  -h, --help            output usage information',
-        ''
+        '  ',
+        '  Usage: run <file>',
+        '  ',
+        '  Options:',
+        '  ',
+        '    -o, --out <file>      log output file',
+        '    -h, --help            output usage information',
+        '  '
     ];
     console.log(msg.join('\n'));
 }
 
 function stopHelp(){
     var msg = [
-        '',
-        'Usage: stop <file>',
-        '',
-        'Options:',
-        '',
-        '  -h, --help            output usage information',
-        ''
+        '  ',
+        '  Usage: stop <file>',
+        '  ',
+        '  Options:',
+        '  ',
+        '    -h, --help            output usage information',
+        '  '
     ];
     console.log(msg.join('\n'));
 }

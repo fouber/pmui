@@ -1,5 +1,5 @@
 {
-    "name": "page-monitor-ui",
+    "name": "pmui",
     "version": "0.0.1",
     "preferGlobal" : true,
     "description": "An UI wrapper of page-monitor",
@@ -12,7 +12,7 @@
     },
     "keywords": [
         "page-monitor",
-        "server",
+        "ui",
         "monitor",
         "diff",
         "express",

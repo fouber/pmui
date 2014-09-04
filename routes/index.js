@@ -5,15 +5,17 @@ var router = express.Router();
 function list(root){
     var urls = [];
     _.find(root, function(path, full){
-        var host = 'http://' + path.replace(/-(?=\d+$)/g, ':');
-        _.find(full, function(p, full){
-            var pathname = new Buffer(p, 'base64');
-            urls.push({
-                url: host + pathname.toString(),
-                path: path + '/' + p,
-                full: full
+        if(path !== 'node_modules'){
+            var host = 'http://' + path.replace(/-(?=\d+$)/g, ':');
+            _.find(full, function(p, full){
+                var pathname = new Buffer(p, 'base64');
+                urls.push({
+                    url: host + pathname.toString(),
+                    path: path + '/' + p,
+                    full: full
+                });
             });
-        });
+        }
     });
     return urls;
 }
