@@ -84,7 +84,9 @@ pmui run www.google.com
 
 ```
 
-### pmui server
+### pmui server &lt;command&gt;
+
+> start/stop ui server
 
 ```bash
 > pmui server -h
@@ -104,7 +106,9 @@ pmui run www.google.com
 
 ```
 
-### pmui run
+### pmui run &lt;file&gt;
+
+> run monitor script
 
 ```bash
 > pmui run -h
@@ -118,7 +122,9 @@ pmui run www.google.com
 
 ```
 
-## pmui stop
+## pmui stop &lt;file&gt;
+
+> stop monitor script
 
 
 ```bash
