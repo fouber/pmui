@@ -1,6 +1,6 @@
 {
     "name": "pmui",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "preferGlobal" : true,
     "description": "An UI wrapper of page-monitor",
     "bin" : {
