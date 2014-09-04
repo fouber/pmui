@@ -64,6 +64,8 @@ pmui run www.google.com
 
 ## Learn more
 
+### pmui
+
 ```bash
 > pmui -h
 
@@ -79,5 +81,53 @@ pmui run www.google.com
 
     -h, --help        output usage information
     -v, --version     output the version number
+
+```
+
+### pmui server
+
+```bash
+> pmui server -h
+
+  Usage: server <command> [options]
+
+  Commands:
+
+    start            start ui server
+    stop             shutdown server
+
+  Options:
+
+    -p, --port <int>      server listen port
+    -r, --root <path>     monitor history root
+    -h, --help            output usage information
+
+```
+
+### pmui run
+
+```bash
+> pmui run -h
+
+  Usage: run <file>
+
+  Options:
+
+    -o, --out <file>      log output file
+    -h, --help            output usage information
+
+```
+
+## pmui stop
+
+
+```bash
+> pmui stop -h
+
+  Usage: stop <file>
+
+  Options:
+
+    -h, --help            output usage information
 
 ```
