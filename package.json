@@ -1,14 +1,14 @@
 {
-    "name": "page-monitor-server",
+    "name": "page-monitor-ui",
     "version": "0.0.1",
-    "private": true,
-    "description": "An express server wrapper of page-monitor",
-    "scripts": {
-        "start": "node ./bin/www"
+    "preferGlobal" : true,
+    "description": "An UI wrapper of page-monitor",
+    "bin" : {
+        "pmui" : "bin/pmui"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/fouber/page-monitor-server.git"
+        "url": "https://github.com/fouber/page-monitor-ui.git"
     },
     "keywords": [
         "page-monitor",
@@ -22,17 +22,16 @@
     "author": "fouber <fouber.NET@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/fouber/page-monitor-server/issues"
+        "url": "https://github.com/fouber/page-monitor-ui/issues"
     },
-    "homepage": "https://github.com/fouber/page-monitor-server",
+    "homepage": "https://github.com/fouber/page-monitor-ui",
     "dependencies": {
-        "page-monitor": "~0.2.0",
+        "minimist": "1.1.0",
         "express": "~4.2.0",
-        "static-favicon": "~1.0.2",
-        "morgan": "~1.0.1",
-        "cookie-parser": "~1.0.1",
-        "body-parser": "~1.0.0",
-        "debug": "~0.7.4",
-        "ejs": "~0.8.5"
+        "chalk": "0.5.1",
+        "static-favicon": "1.0.2",
+        "morgan": "1.2.3",
+        "debug": "1.0.4",
+        "ejs": "1.0.0"
     }
 }

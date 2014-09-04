@@ -2,29 +2,26 @@ var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
+var debug = require('debug')('page-monitor');
 var routes = require('./routes/index');
 var info = require('./routes/info');
+var fs= require('fs');
 
 var app = express();
+
+var port = process.argv[2];
+var root = process.argv[3];
+var pidfile = process.argv[4];
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.set('page monitor root', root);
+app.set('port', port || 8894);
 
 app.use(favicon());
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-var root = path.join(__dirname, 'test');
-// todo
-app.set('page monitor root', root);
 app.use(express.static(root));
 app.use('/', routes);
 app.use('/info', info);
@@ -60,5 +57,8 @@ app.use(function (err, req, res, next) {
     });
 });
 
-
-module.exports = app;
+var server = app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + server.address().port);
+    console.log('done');
+    fs.writeFileSync(pidfile, process.pid);
+});

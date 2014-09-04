@@ -1,3 +1,5 @@
-## Page Monitor Server
+## Page Monitor UI
 
-> An express server wrapper of [page-monitor](https://github.com/fouber/page-monitor)
+An UI wrapper of [page-monitor](https://github.com/fouber/page-monitor), to show and diff history captures.
+
+![screenshot](./assets/screenshot.png)
