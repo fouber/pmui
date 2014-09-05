@@ -44,7 +44,14 @@ var Monitor = require('page-monitor');
 var url = 'http://www.google.com/';
 var opt = { /* see https://github.com/fouber/page-monitor#monitor */ };
 var monitor = new Monitor(url, opt);
-var timeout = 60 * 1000; // 1 minute a capture
+monitor.on('debug', function (data) {
+    console.log('debug: ' + data);
+});
+monitor.on('error', function (data) {
+    console.error('error: ' + data);
+});
+
+var timeout = 60 * 1000; // 1 minute 1 capture
 (function(){
     var callee = arguments.callee;
     monitor.capture(function (code) {
