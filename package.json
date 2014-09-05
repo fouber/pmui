@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/fouber/page-monitor-ui.git"
+        "url": "https://github.com/fouber/pmui.git"
     },
     "keywords": [
         "page-monitor",
@@ -22,9 +22,9 @@
     "author": "fouber <fouber.NET@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/fouber/page-monitor-ui/issues"
+        "url": "https://github.com/fouber/pmui/issues"
     },
-    "homepage": "https://github.com/fouber/page-monitor-ui",
+    "homepage": "https://github.com/fouber/pmui",
     "dependencies": {
         "minimist": "1.1.0",
         "express": "~4.2.0",
