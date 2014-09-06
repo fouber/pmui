@@ -6,7 +6,11 @@ An UI wrapper of [page-monitor](https://github.com/fouber/page-monitor), to show
 
 ## Usage
 
-### Setp 1. install
+### Step 0. install ``phantomjs``
+
+see http://phantomjs.org/download.html
+
+### Setp 1. install ``pmui`` package
 
 ```bash
 npm install -g pmui
