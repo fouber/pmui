@@ -72,6 +72,10 @@ var timeout = 60 * 1000; // 1 minute 1 capture
 pmui run www.google.com
 ```
 
+### Upgrade
+
+upgrade pmui: ``npm update -g pmui``
+upgrade page-monitor: ``npm update page-monitor``
 
 ## Learn More
 
