@@ -53,7 +53,7 @@ vim app.js
 content of app.js:
 
 ```javascript
-var app = require('../pmui');
+var app = require('pmui');
 
 app.set('port', process.env.PORT || 8894);
 
