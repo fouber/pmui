@@ -1,6 +1,6 @@
 {
     "name": "pmui",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "An UI wrapper of page-monitor",
     "repository": {
         "type": "git",
@@ -20,6 +20,7 @@
     "bugs": {
         "url": "https://github.com/fouber/pmui/issues"
     },
+    "main": "app.js",
     "homepage": "https://github.com/fouber/pmui",
     "dependencies": {
         "minimist": "1.1.0",
