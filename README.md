@@ -10,38 +10,92 @@ An UI wrapper of [page-monitor](https://github.com/fouber/page-monitor), to show
 
 see http://phantomjs.org/download.html
 
-### Setp 1. install ``pmui`` package
-
-```bash
-npm install -g pmui
-```
-
-> NOTICE: use ``-g`` option to install as global cli tool.
-
-### Step 2. start ui server
+### Step 1. create a directory on your machine
 
 ```bash
 mkdir page-monitor
 cd page-monitor
-pmui server start
 ```
 
-### Step 4. install page-monitor
+### Step 2. generate ``package.json``
 
 ```bash
-npm install page-monitor
+vim package.json
 ```
 
-> NOTICE: install into current work dir, DO NOT use ``-g`` option.
+content of package.json:
+
+```json
+{
+  "name": "my-monitor",
+  "description": "monitor www.google.com",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "pmui": "*",
+    "page-monitor": "*"
+  }
+}
+```
+
+### Step 3. install packages
+
+```bash
+npm install
+```
+
+### Step 4. create ``app.js``
+
+```bash
+vim app.js
+```
+
+content of app.js:
+
+```javascript
+var app = require('../pmui');
+
+app.set('port', process.env.PORT || 8894);
+
+// app.set('page monitor root', process.cwd());   // path to save captures
+// app.set('page monitor ext', 'jpg');            // screenshot format
+// app.set('page monitor title', 'Page Monitor'); // page title
+
+var cluster = require('cluster'),
+    os = require('os'),
+    cpuCount = os.cpus().length,
+    logger = app.get('logger') || console;
+
+if (cluster.isMaster) {
+    for (var i = 0; i < cpuCount; i++) cluster.fork();
+    cluster.on('exit', function (worker) {
+        logger.error('Worker ' + worker.id + 'died :(');
+        cluster.fork();
+    });
+} else {
+    app.listen(app.get('port'), function () {
+        logger.log('[%s] Express server listening on port %d',
+            app.get('env').toUpperCase(), app.get('port'));
+    });
+}
+```
+
+### Step 5. launch ui server
+
+```bash
+node app.js
+```
+
+> It is recommended to use [forever](https://github.com/nodejitsu/forever) to run server as a daemon in the background.
 
 
-### Step 5. generate monitor script
+### Step 6. generate monitor script
 
 ```bash
 vim www.google.com.js
 ```
 
-www.google.com.js:
+content of www.google.com.js:
 
 ```javascript
 var Monitor = require('page-monitor');
@@ -49,106 +103,31 @@ var url = 'http://www.google.com/';
 var opt = { /* see https://github.com/fouber/page-monitor#monitor */ };
 var monitor = new Monitor(url, opt);
 monitor.on('debug', function (data) {
-    console.log('debug: ' + data);
+    console.log('[DEBUG] ' + data);
 });
 monitor.on('error', function (data) {
-    console.error('error: ' + data);
+    console.error('[ERROR] ' + data);
 });
 
-var timeout = 60 * 1000; // 1 minute 1 capture
-(function(){
-    var callee = arguments.callee;
-    monitor.capture(function (code) {
-        // do something...
-        console.log(monitor.log);      // useful information from phantomjs
-        setTimeout(callee, timeout);   // interval
-    });
-})();
+monitor.capture(function (code) {
+    console.log('[DONE ] ' + (new Date));
+});
 ```
 
-### Step 6. run monitor script
+### Step 7. run monitor script
 
 ```bash
-pmui run www.google.com
+node www.google.com
+```
+
+I highly recommend to use [forever](https://github.com/nodejitsu/forever) to run monitor script as a daemon in the background.
+
+```bash
+forever start --spinSleepTime 60000 www.google.com.js
 ```
 
 ### Upgrade
 
-upgrade pmui: ``npm update -g pmui``
-upgrade page-monitor: ``npm update page-monitor``
-
-## Learn More
-
-### pmui
-
 ```bash
-> pmui -h
-
-  Usage: pmui <cmd>
-
-  Commands:
-
-    server <cmd>      start/stop ui server
-    run <file>        run monitor script
-    stop <file>       stop monitor script
-
-  Options:
-
-    -h, --help        output usage information
-    -v, --version     output the version number
-
-```
-
-### pmui server &lt;command&gt;
-
-> start/stop ui server
-
-```bash
-> pmui server -h
-
-  Usage: server <command> [options]
-
-  Commands:
-
-    start            start ui server
-    stop             shutdown server
-
-  Options:
-
-    -p, --port <int>      server listen port
-    -r, --root <path>     monitor history root
-    -h, --help            output usage information
-
-```
-
-### pmui run &lt;file&gt;
-
-> run monitor script
-
-```bash
-> pmui run -h
-
-  Usage: run <file>
-
-  Options:
-
-    -o, --out <file>      log output file
-    -h, --help            output usage information
-
-```
-
-## pmui stop &lt;file&gt;
-
-> stop monitor script
-
-
-```bash
-> pmui stop -h
-
-  Usage: stop <file>
-
-  Options:
-
-    -h, --help            output usage information
-
+npm update
 ```

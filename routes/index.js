@@ -23,7 +23,8 @@ function list(root){
 /* GET home page. */
 router.get('/', function (req, res) {
     var root = req.app.get('page monitor root');
-    res.render('index', { title: 'Page Monitor', list: list(root) });
+    var title = req.app.get('page monitor title');
+    res.render('index', { title: title, list: list(root) });
 });
 
 module.exports = router;

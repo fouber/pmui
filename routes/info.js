@@ -6,6 +6,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function (req, res) {
     var root = req.app.get('page monitor root');
+    var ext = req.app.get('page monitor ext');
     var path = String(req.query.path).replace(/(^|\/)\.\.(?=\/|$)/g, '');
     var full = root + '/' + path;
     var info = {
@@ -15,6 +16,7 @@ router.get('/', function (req, res) {
         if(_.isFile(full + '/latest.log')){
             var object = info.object = {};
             object.latest = String(fs.readFileSync(full + '/latest.log')).trim();
+            object.ext = ext;
             object.list = [];
             _.find(full, function(dir){
                 if(/^\d+$/.test(dir)){
@@ -22,7 +24,7 @@ router.get('/', function (req, res) {
                         time: dir,
                         root: path,
                         path: path + '/' + dir,
-                        screenshot: path + '/' + dir + '/screenshot.png'
+                        screenshot: path + '/' + dir + '/screenshot.' + ext
                     });
                 }
             });

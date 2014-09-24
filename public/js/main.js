@@ -20,10 +20,10 @@
         return ('0' + str).substr(-2);
     }
 
-    function getDiff(item, last){
+    function getDiff(item, last, ext){
         return [
             item.root, 'diff',
-            last + '-' + item.time + '.png'
+            last + '-' + item.time + '.' + ext
         ].join('/');
     }
 
@@ -34,7 +34,7 @@
                     var html = '';
                     var last;
                     data.object.list.forEach(function(item){
-                        var attr = ' data-diff="' + (last ? getDiff(item, last) : item.screenshot) + '"';
+                        var attr = ' data-diff="' + (last ? getDiff(item, last, data.object.ext) : item.screenshot) + '"';
                         var h = '<td>';
                         h += '<div class="screenshot">';
                         h += '<div class="title">' + getTimeString(item.time) + '</div>';

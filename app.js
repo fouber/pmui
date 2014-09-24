@@ -5,19 +5,17 @@ var logger = require('morgan');
 var debug = require('debug')('page-monitor');
 var routes = require('./routes/index');
 var info = require('./routes/info');
-var fs= require('fs');
 
 var app = express();
-
-var port = process.argv[2];
-var root = process.argv[3];
-var pidfile = process.argv[4];
+var root = process.cwd();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 app.set('page monitor root', root);
-app.set('port', port || 8894);
+app.set('page monitor ext', 'jpg');
+app.set('page monitor title', 'Page Monitor');
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -57,8 +55,5 @@ app.use(function (err, req, res, next) {
     });
 });
 
-var server = app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + server.address().port);
-    console.log('done');
-    fs.writeFileSync(pidfile, process.pid);
-});
+
+module.exports = app;

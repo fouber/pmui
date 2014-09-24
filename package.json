@@ -1,11 +1,7 @@
 {
     "name": "pmui",
-    "version": "0.1.1",
-    "preferGlobal" : true,
+    "version": "0.2.0",
     "description": "An UI wrapper of page-monitor",
-    "bin" : {
-        "pmui" : "bin/pmui"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/fouber/pmui.git"
