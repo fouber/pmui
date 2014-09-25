@@ -115,7 +115,7 @@ body {
 
 .list {
     width: 100%;
-    overflow: auto;
+    overflow: scroll;
     border-bottom: 1px solid #ccc;
     background: #eee;
 }
