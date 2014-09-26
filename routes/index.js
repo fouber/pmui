@@ -8,7 +8,7 @@ function list(root){
         if(path !== 'node_modules'){
             var host = 'http://' + path.replace(/-(?=\d+$)/g, ':');
             _.find(full, function(p, full){
-                var pathname = new Buffer(p, 'base64');
+                var pathname = new Buffer(p.replace(/\./g, '/'), 'base64');
                 urls.push({
                     url: host + pathname.toString(),
                     path: path + '/' + p,
