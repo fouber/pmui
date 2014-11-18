@@ -128,7 +128,7 @@ body {
 #list td {
   background: #fff;
   border: 1px solid #ccc;
-  padding: 2px;
+  padding: 3px;
 }
 
 .screenshot {
@@ -141,10 +141,6 @@ body {
   -ms-user-select: none;   /*IE10*/
   -khtml-user-select: none; /*早期浏览器*/
   user-select: none;
-  display: inline-block;
-  border: 1px solid #ccc;
-  padding: 2px;
-  margin-right: 2px;
 }
 
 .screenshot .title {

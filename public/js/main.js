@@ -35,14 +35,15 @@
           var last;
           data.object.list.forEach(function (item) {
             var attr = ' data-diff="' + (last ? getDiff(item, last, data.object.ext) : item.screenshot) + '"';
-            var h = '';
+            var h = '<td>';
             h += '<div class="screenshot"' + attr + ' data-pic="' + item.screenshot + '">';
             h += '<div class="title">' + getTimeString(item.time) + '</div>';
             h += '</div>';
+            h += '</td>';
             last = item.time;
             html += h;
           });
-          // html = '<table><tr>' + html + '</tr></table>';
+          html = '<table><tr>' + html + '</tr></table>';
           var list = $('#list');
           list.html(html);
           list.parent().scrollLeft(list.get(0).scrollWidth);
