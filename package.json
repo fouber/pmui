@@ -1,6 +1,6 @@
 {
     "name": "pmui",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "description": "An UI wrapper of page-monitor",
     "repository": {
         "type": "git",
