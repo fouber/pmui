@@ -3,52 +3,51 @@ a {
 }
 
 html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 body {
-    background: #fff;
-    font-size: 14px;
-    font-family:
-        'helvetica neue', tahoma,
-        'hiragino sans gb',stheiti,
-        'wenquanyi micro hei',
-        \5FAE\8F6F\96C5\9ED1,\5B8B\4F53,
-        sans-serif;
-    line-height: 14px;
-    color: #34495e;
+  background: #fff;
+  font-size: 14px;
+  font-family: 'helvetica neue', tahoma,
+  'hiragino sans gb', stheiti,
+  'wenquanyi micro hei',
+  \5FAE\8F6F\96C5\9ED1, \5B8B\4F53,
+  sans-serif;
+  line-height: 14px;
+  color: #34495e;
 }
 
 .header {
-    background: #2c3e50;
-    color: #ecf0f1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid #fff;
-    position: relative;
-    z-index: 10000;
+  background: #2c3e50;
+  color: #ecf0f1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #fff;
+  position: relative;
+  z-index: 10000;
 }
 
 .header h1 {
-    font-size: 15px;
-    line-height: 40px;
-    height: 40px;
-    padding-left: 20px;
-    font-weight: normal;
+  font-size: 15px;
+  line-height: 40px;
+  height: 40px;
+  padding-left: 20px;
+  font-weight: normal;
 }
 
 .info {
-    position: absolute;
-    left: 0;
-    top: 40px;
-    width: 199px;
-    background: #ecf0f1;
-    border-right: 1px solid #ccc;
-    bottom: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 199px;
+  background: #ecf0f1;
+  border-right: 1px solid #ccc;
+  bottom: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .info-inner {
@@ -56,151 +55,162 @@ body {
 }
 
 .info h2 {
-    font-weight: normal;
-    height: 40px;
-    line-height: 40px;
-    font-size: 15px;
-    text-align: center;
+  font-weight: normal;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  text-align: center;
 }
 
 .info ul {
-    word-break: break-all;
+  word-break: break-all;
 }
 
 .info ul li {
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .info ul a {
-    display: block;
-    padding: 10px;
-    font-size: 15px;
-    line-height: 18px;
-    text-decoration: none;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
+  display: block;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .info ul a:hover {
-    background: #3498db;
-    color: #fff;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+  background: #3498db;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
 }
 
 .main {
-    position: absolute;
-    top: 40px;
-    left: 200px;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  top: 40px;
+  left: 200px;
+  right: 0;
+  bottom: 0;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #2980b9;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 12px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    border-top: 1px solid #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2980b9;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid #fff;
 }
 
 .footer a {
-    line-height: 18px;
-    color: #fff;
-    text-decoration: none;
+  line-height: 18px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .list {
-    width: 100%;
-    overflow: scroll;
-    border-bottom: 1px solid #ccc;
-    background: #eee;
+  width: 100%;
+  overflow: scroll;
+  border-bottom: 1px solid #ccc;
+  background: #eee;
 }
 
 #list {
-    margin: 5px 7px;
+  margin: 6px 7px 5px;
 }
 
 #list td {
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 2px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 2px;
 }
 
 .screenshot {
-    max-width: 200px;
-    min-width: 110px;
-    height: 160px;
-    overflow: hidden;
-    position: relative;
+  width: 120px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none;  /*webkit浏览器*/
+  -ms-user-select: none;   /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 2px;
+  margin-right: 2px;
 }
 
 .screenshot .title {
-    font-size: 12px;
-    text-align: center;
-    background: #333;
-    color: #ffffff;
-    line-height: 20px;
-    height: 20px;
+  font-size: 12px;
+  text-align: center;
+  background: #333;
+  color: #ffffff;
+  line-height: 20px;
+  height: 20px;
+}
+
+.screenshot.actived {
+  border: 1px solid #999;
 }
 
 .screenshot.actived .title {
-    background: #e67e22;
+  background: #e67e22;
 }
 
 .screenshot .pic {
-    overflow: hidden;
-    position: relative;
-    height: calc(100% - 20px);
+  overflow: hidden;
+  position: relative;
+  height: calc(100% - 20px);
 }
 
 .screenshot .pic:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    cursor: pointer;
-    background: rgba(0,0,0,0);
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
 }
 
 .screenshot img {
-    width: 100%;
-    -webkit-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
+  width: 100%;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 #diff {
-    background: #fff;
-    text-align: center;
-    overflow: auto;
-    position: absolute;
-    top: 191px;
-    left: 0;
-    right: 0;
-    bottom: 30px;
+  background: #fff;
+  text-align: center;
+  overflow: auto;
+  position: absolute;
+  top: 191px;
+  left: 0;
+  right: 0;
+  bottom: 30px;
 }
 
 #diff img {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    margin: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin: 20px;
 }
 
 @media (max-height: 600px) {
-    .screenshot {
-        height: 80px;
-        overflow: hidden;
-    }
+  .screenshot {
+    height: 80px;
+    overflow: hidden;
+  }
 
-    #diff {
-        top: 111px;
-    }
+  #diff {
+    top: 111px;
+  }
 
 }
