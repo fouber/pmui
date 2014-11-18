@@ -28,16 +28,19 @@ body {
 }
 ::-webkit-scrollbar-track-piece
 {
+  background-color: rgba(0,0,0,0.1);
   -webkit-border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:vertical
 {
   height: 5px;
+  background-color: rgba(0,0,0,0.7);
   -webkit-border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:horizontal
 {
   width: 5px;
+  background-color: rgba(0,0,0,0.7);
   -webkit-border-radius: 6px;
 }
 
