@@ -21,6 +21,29 @@ body {
   color: #34495e;
 }
 
+::-webkit-scrollbar
+{
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track-piece
+{
+  background-color: rgba(0,0,0,0.2);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical
+{
+  height: 5px;
+  background-color: rgba(125,125,125,0.7);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal
+{
+  width: 5px;
+  background-color: rgba(125,125,125,0.7);
+  -webkit-border-radius: 6px;
+}
+
 .header {
   background: #2c3e50;
   color: #ecf0f1;
@@ -116,7 +139,7 @@ body {
 
 .list {
   width: 100%;
-  overflow: scroll;
+  overflow-x: scroll;
   border-bottom: 1px solid #ccc;
   background: #eee;
 }
@@ -152,10 +175,6 @@ body {
   height: 20px;
 }
 
-.screenshot.actived {
-  border: 1px solid #999;
-}
-
 .screenshot.actived .title {
   background: #e67e22;
 }
@@ -188,7 +207,7 @@ body {
   text-align: center;
   overflow: auto;
   position: absolute;
-  top: 191px;
+  top: 40px;
   left: 0;
   right: 0;
   bottom: 30px;
@@ -197,16 +216,4 @@ body {
 #diff img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   margin: 20px;
-}
-
-@media (max-height: 600px) {
-  .screenshot {
-    height: 80px;
-    overflow: hidden;
-  }
-
-  #diff {
-    top: 111px;
-  }
-
 }
