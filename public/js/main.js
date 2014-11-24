@@ -13,7 +13,7 @@
       pad(d.getMinutes()),
       pad(d.getSeconds())
     ].join(':');
-    return day + ' ' + time;
+    return day + '<br/>' + time;
   }
 
   function pad(str) {

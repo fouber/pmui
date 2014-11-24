@@ -155,7 +155,7 @@ body {
 }
 
 .screenshot {
-  width: 120px;
+  width: 60px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -171,8 +171,9 @@ body {
   text-align: center;
   background: #333;
   color: #ffffff;
-  line-height: 20px;
-  height: 20px;
+  line-height: 16px;
+  height: 32px;
+  padding: 3px 0;
 }
 
 .screenshot.actived .title {
@@ -207,7 +208,7 @@ body {
   text-align: center;
   overflow: auto;
   position: absolute;
-  top: 50px;
+  top: 63px;
   left: 0;
   right: 0;
   bottom: 30px;
