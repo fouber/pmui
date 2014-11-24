@@ -154,9 +154,21 @@ body {
   padding: 3px;
 }
 
-.screenshot {
-  width: 60px;
+.date, .screenshot {
+  width: 65px;
   overflow: hidden;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  height: 20px;
+}
+
+.date {
+  color: #999;
+  font-weight: bold;
+}
+
+.screenshot {
   position: relative;
   cursor: pointer;
   -moz-user-select: none; /*火狐*/
@@ -167,13 +179,8 @@ body {
 }
 
 .screenshot .title {
-  font-size: 12px;
-  text-align: center;
   background: #333;
   color: #ffffff;
-  line-height: 16px;
-  height: 32px;
-  padding: 3px 0;
 }
 
 .screenshot.actived .title {
@@ -208,7 +215,7 @@ body {
   text-align: center;
   overflow: auto;
   position: absolute;
-  top: 63px;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 30px;

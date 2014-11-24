@@ -4,7 +4,7 @@
     var d = new Date();
     d.setTime(num);
     var day = [
-      String(d.getFullYear()).substring(2),
+      String(d.getFullYear()).substr(-2),
       pad(d.getMonth() + 1),
       pad(d.getDate())
     ].join('/');
@@ -13,7 +13,7 @@
       pad(d.getMinutes()),
       pad(d.getSeconds())
     ].join(':');
-    return day + '<br/>' + time;
+    return [ day, time ];
   }
 
   function pad(str) {
@@ -33,11 +33,19 @@
         if (data.status === 0) {
           var html = '';
           var last;
-          data.object.list.forEach(function (item) {
+          data.object.list.forEach(function (item, index) {
+            var currTimeString = getTimeString(item.time);
+            var lastTimeString = index ? getTimeString(last) : currTimeString;
             var attr = ' data-diff="' + (last ? getDiff(item, last, data.object.ext) : item.screenshot) + '"';
-            var h = '<td>';
+            var h = '';
+            if(index === 0 || currTimeString[0] !== lastTimeString[0]){
+              h += '<td>';
+              h += '<div class="date">' + currTimeString[0] + '</div>';
+              h += '</td>';
+            }
+            h += '<td>';
             h += '<div class="screenshot"' + attr + ' data-pic="' + item.screenshot + '">';
-            h += '<div class="title">' + getTimeString(item.time) + '</div>';
+            h += '<div class="title" title="日期 ' + currTimeString[0] + '">' + currTimeString[1] + '</div>';
             h += '</div>';
             h += '</td>';
             last = item.time;
